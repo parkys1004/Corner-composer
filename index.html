@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suno AI 음악 제작 실전 패키지 - 전자책 & 빌더 앱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Pretendard', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.1), transparent),
+                        #0f172a;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.26.2",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+<body class="bg-[#0f172a] text-gray-100">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter gradient-text">방구석 작곡가 Suno AI 가이드</div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#features" class="hover:text-indigo-400 transition">특장점</a>
+                <a href="#package" class="hover:text-indigo-400 transition">패키지 구성</a>
+                <a href="#recommend" class="hover:text-indigo-400 transition">추천 대상</a>
+            </nav>
+            <a href="#" class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-full text-sm font-bold transition">
+                구매하기
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-sm font-semibold">
+                Suno AI x 전용 웹빌더 실전 패키지
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">
+                주제만 입력하면 <br>
+                <span class="gradient-text">음악이 자동으로 완성</span>되는 환경
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+                읽고 끝나는 전자책이 아닙니다. 클릭 몇 번으로 제목, 가사, 프롬프트, <br class="hidden md:block">
+                앨범 아트까지 생성하는 <strong>전용 웹빌더 앱</strong>을 함께 제공합니다.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#package" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg shadow-indigo-500/20">
+                    지금 바로 시작하기
+                </a>
+                <div class="flex items-center justify-center space-x-2 text-gray-400 px-6">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    <span>Suno v5 완벽 대응</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Check Section -->
+    <section class="py-16 px-6 bg-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-indigo-900/20 border border-indigo-500/30 rounded-2xl p-8">
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-info-circle mr-2 text-indigo-400"></i>
+                    구매 전 꼭 확인해주세요 (웹빌더 앱 안내)
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 text-gray-300 text-sm">
+                    <div class="flex space-x-3">
+                        <span class="text-indigo-400 font-bold">01.</span>
+                        <p>무료 Gemini API 키로도 즉시 작동 (단, 앨범이미지 생성은 제외)</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <span class="text-indigo-400 font-bold">02.</span>
+                        <p>커스텀 가능한 별도의 앨범아트 이미지 생성 빌더앱 추가 제공</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <span class="text-indigo-400 font-bold">03.</span>
+                        <p>반응형 지원으로 모바일 확인 가능 (최적의 사용은 PC 권장)</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <span class="text-indigo-400 font-bold">04.</span>
+                        <p>지속적인 버전 업데이트 제공 및 최신 버전 활성화 지원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">왜 이 패키지인가요?</h2>
+                <p class="text-gray-400">음악을 몰라도, 작곡 경험이 없어도 가능합니다.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-magic text-indigo-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">자동 생성 시스템</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">음악 제목부터 가사, Suno 최적화 프롬프트까지 입맛대로 자동 생성해줍니다.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-layer-group text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">240세트 프롬프트 랩</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">40가지 장르별 각 6개의 프롬프트 세트를 제공하여 퀄리티를 보장합니다.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-image text-pink-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">앨범 아트 자동 제작</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">음악에 어울리는 고퀄리티 이미지를 생성할 수 있는 전용 앱이 추가로 포함됩니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Detail Section -->
+    <section id="package" class="py-24 px-6 bg-indigo-600/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">구매 시 받게 되는 혜택</h2>
+            </div>
+            <div class="space-y-6">
+                <div class="flex items-center p-6 bg-[#1a2035] rounded-2xl border border-white/5">
+                    <div class="text-3xl mr-6">📘</div>
+                    <div>
+                        <h5 class="font-bold text-lg">Suno AI 기반 1인 음악 제작 전자책</h5>
+                        <p class="text-gray-400 text-sm italic">기초부터 실전 노하우까지 모두 담았습니다.</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-6 bg-[#1a2035] rounded-2xl border border-indigo-500/30">
+                    <div class="text-3xl mr-6">🚀</div>
+                    <div>
+                        <h5 class="font-bold text-lg text-indigo-300">음악 스타일 자동 웹빌더 앱 제공</h5>
+                        <p class="text-gray-400 text-sm">전자책 내 '방구석 음악만들기 SUNO V5' 링크로 즉시 이용 가능</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-6 bg-[#1a2035] rounded-2xl border border-white/5">
+                    <div class="text-3xl mr-6">💎</div>
+                    <div>
+                        <h5 class="font-bold text-lg">Suno v5 Prompt Lab Pro</h5>
+                        <p class="text-gray-400 text-sm">지속적으로 업데이트되는 240세트 이상의 데이터베이스</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommend Section -->
+    <section id="recommend" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">이런 분들께 강력 추천합니다</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start p-4 space-x-3">
+                    <i class="fas fa-user-check text-indigo-500 mt-1"></i>
+                    <span>음악을 하고 싶었지만 시작이 막막했던 분</span>
+                </div>
+                <div class="flex items-start p-4 space-x-3">
+                    <i class="fas fa-user-check text-indigo-500 mt-1"></i>
+                    <span>Suno 프롬프트 작성이 너무 어렵게 느껴지는 분</span>
+                </div>
+                <div class="flex items-start p-4 space-x-3">
+                    <i class="fas fa-user-check text-indigo-500 mt-1"></i>
+                    <span>유튜브, SNS, BGM 제작이 빠르게 필요한 분</span>
+                </div>
+                <div class="flex items-start p-4 space-x-3">
+                    <i class="fas fa-user-check text-indigo-500 mt-1"></i>
+                    <span>AI를 활용해 새로운 수익 모델을 찾는 분</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefit/Outro Section -->
+    <section class="py-24 px-6 bg-gradient-to-b from-transparent to-indigo-900/20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">구매 후 무엇이 달라지나요?</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div>
+                    <div class="text-3xl mb-2">🎸</div>
+                    <p class="text-sm">제작의 쉬움</p>
+                </div>
+                <div>
+                    <div class="text-3xl mb-2">⚡</div>
+                    <p class="text-sm">즉각적 실현</p>
+                </div>
+                <div>
+                    <div class="text-3xl mb-2">⏰</div>
+                    <p class="text-sm">시간 획기적 단축</p>
+                </div>
+                <div>
+                    <div class="text-3xl mb-2">💪</div>
+                    <p class="text-sm">할 수 있다는 확신</p>
+                </div>
+            </div>
+            
+            <div class="bg-indigo-600 p-10 rounded-3xl">
+                <h3 class="text-2xl font-bold mb-4">지금 바로 당신의 음악을 만드세요</h3>
+                <p class="text-indigo-100 mb-8">전자책을 구매하는 순간, 음악 제작 환경이 완벽하게 세팅됩니다.</p>
+                <button class="bg-white text-indigo-600 px-10 py-4 rounded-xl font-bold text-xl hover:bg-gray-100 transition">
+                    패키지 구매하기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5 text-center text-gray-500 text-sm">
+        <p>© 2024 SUNO V5 Prompt Lab Pro. All Rights Reserved.</p>
+        <p class="mt-2">본 서비스는 지속적인 업데이트를 통해 최상의 경험을 제공합니다.</p>
+    </footer>
+
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
