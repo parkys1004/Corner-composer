@@ -72,15 +72,30 @@
 <body class="bg-[#0f172a] text-gray-100 pb-32">
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-white/10">
+    <header class="fixed w-full z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter gradient-text">방구석 작곡가 Suno AI 가이드</div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+            <div class="text-xl md:text-2xl font-bold tracking-tighter gradient-text truncate pr-4">방구석 작곡가 Suno AI 가이드</div>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium whitespace-nowrap">
                 <a href="#features" class="hover:text-indigo-400 transition">특장점</a>
                 <a href="#package" class="hover:text-indigo-400 transition">패키지 구성</a>
                 <a href="#recommend" class="hover:text-indigo-400 transition">추천 대상</a>
             </nav>
-            <!-- Top Button Removed -->
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a] border-t border-white/10 absolute w-full left-0 top-full shadow-2xl">
+            <nav class="flex flex-col p-4 space-y-4">
+                <a href="#features" class="block text-gray-300 hover:text-indigo-400 transition py-2 px-4 rounded hover:bg-white/5">특장점</a>
+                <a href="#package" class="block text-gray-300 hover:text-indigo-400 transition py-2 px-4 rounded hover:bg-white/5">패키지 구성</a>
+                <a href="#recommend" class="block text-gray-300 hover:text-indigo-400 transition py-2 px-4 rounded hover:bg-white/5">추천 대상</a>
+            </nav>
         </div>
     </header>
 
@@ -274,6 +289,28 @@
             <i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
         </a>
     </div>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = menu.querySelectorAll('a');
+
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+
+                // Close menu when a link is clicked
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
 
     <script type="module" src="/index.tsx"></script>
 </body>
