@@ -84,16 +84,24 @@ const ScrollManager: React.FC<ScrollManagerProps> = ({ onOpenModal }) => {
     });
 
     // 5. Hijack Buttons for Modal Interaction
-    const buttons = document.querySelectorAll('a[href="#package"], button, a[href="#"]');
+    // Removed a[href="#package"] so that the nav link works as a normal anchor
+    const buttons = document.querySelectorAll('button, a[href="#"]');
     const handleButtonClick = (e: Event) => {
       const target = e.currentTarget as HTMLElement;
       const text = target.textContent?.trim() || "";
-      // Match keywords for "Buy" or "Start"
+      
+      // 1. Purchase Link -> Kmong
+      if (text.includes("구매하기")) {
+        e.preventDefault();
+        window.open("https://kmong.com/gig/730531", "_blank");
+        return;
+      }
+
+      // 2. Start/Demo Link -> Modal
+      // Only hijack if it explicitly says "Start" or is a generic button (that wasn't purchase)
       if (
-        text.includes("구매하기") || 
         text.includes("시작하기") || 
-        text.includes("패키지") ||
-        target.tagName === 'BUTTON'
+        (target.tagName === 'BUTTON')
       ) {
         e.preventDefault();
         onOpenModal();
